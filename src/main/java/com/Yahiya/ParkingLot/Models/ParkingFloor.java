@@ -16,7 +16,9 @@ public class ParkingFloor {
         return floorNumber;
     }
 
+
     public List<ParkingSpot> getParkingSpots() {
-        return parkingSpots;
-    }
+    return this.parkingSpots;
+}
+
 }

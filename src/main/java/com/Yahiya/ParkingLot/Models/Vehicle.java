@@ -1,22 +1,51 @@
 package main.java.com.Yahiya.ParkingLot.Models;
 
-import main.java.com.Yahiya.ParkingLot.enums.*;
+import main.java.com.Yahiya.ParkingLot.enums.VehicleType;
 
-public class Vehicle {
+/**
+ * The Base Abstract Class
+ */
+public abstract class Vehicle {
+    private final String licensePlate;
+    private final VehicleType type;
 
-    private String vehicleNumber;
-    private VehicleType vehicleType;
-
-    public Vehicle(String vehicleNumber, VehicleType vehicleType) {
-        this.vehicleNumber = vehicleNumber;
-        this.vehicleType = vehicleType;
+    public Vehicle(String licensePlate, VehicleType type) {
+        this.licensePlate = licensePlate;
+        this.type = type;
     }
 
-    public String getVehicleNumber() {
-        return vehicleNumber;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
+    public VehicleType getType() {
+        return type;
+    }
+}
+
+/**
+ * Concrete Subclasses (Package-Private)
+ */
+class Car extends Vehicle {
+    public Car(String licensePlate) {
+        super(licensePlate, VehicleType.Car);
+    }
+}
+
+class Bike extends Vehicle {
+    public Bike(String licensePlate) {
+        super(licensePlate, VehicleType.Bike);
+    }
+}
+
+class Bus extends Vehicle {
+    public Bus(String licensePlate) {
+        super(licensePlate, VehicleType.Bus);
+    }
+}
+
+class ThreeWheel extends Vehicle {
+    public ThreeWheel(String licensePlate) {
+        super(licensePlate, VehicleType.ThreeWheel);
     }
 }

@@ -1,28 +1,29 @@
 package main.java.com.Yahiya.ParkingLot.Models;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class ParkingTicket {
-
-    private String ticketId;
+    private String ticketNumber;
     private Vehicle vehicle;
     private ParkingSpot parkingSpot;
     private LocalDateTime entryTime;
-    private LocalDateTime exitTime;
+    private String entryGate;
 
-    public ParkingTicket(String ticketId, Vehicle vehicle, ParkingSpot parkingSpot, LocalDateTime entryTime) {
-        this.ticketId = ticketId;
+    public ParkingTicket(Vehicle vehicle, ParkingSpot parkingSpot, String entryGate) {
+        this.ticketNumber = "TIC-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         this.vehicle = vehicle;
         this.parkingSpot = parkingSpot;
-        this.entryTime = entryTime;
-    }
-
-    public String getTicketId() {
-        return ticketId;
+        this.entryGate = entryGate;
+        this.entryTime = LocalDateTime.now();
     }
 
     public Vehicle getVehicle() {
         return vehicle;
+    }
+
+    public String getTicketNumber() {
+        return ticketNumber;
     }
 
     public ParkingSpot getParkingSpot() {
@@ -33,12 +34,7 @@ public class ParkingTicket {
         return entryTime;
     }
 
-    public LocalDateTime getExitTime() {
-        return exitTime;
-    }
-
-    public void setExitTime(LocalDateTime exitTime) {
-        this.exitTime = exitTime;
+    public String getEntryGate() {
+        return entryGate;
     }
 }
-

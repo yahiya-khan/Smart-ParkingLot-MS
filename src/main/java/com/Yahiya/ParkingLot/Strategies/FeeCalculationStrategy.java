@@ -1,8 +1,8 @@
 package main.java.com.Yahiya.ParkingLot.Strategies;
 
-import main.java.com.Yahiya.ParkingLot.enums.VehicleType;
-
+import main.java.com.Yahiya.ParkingLot.Models.ParkingTicket;
 
 public interface FeeCalculationStrategy {
-    double calculateFee(VehicleType vehicleType, long hours);
+    // passes the whole ticket so the strategy can see entryTime, vehicleType, etc.
+    double calculateFee(ParkingTicket ticket);
 }
